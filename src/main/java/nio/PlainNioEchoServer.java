@@ -48,16 +48,21 @@ public class PlainNioEchoServer {
 						System.out.println("Accept connection time: " + (System.currentTimeMillis() - beforeTime) + " ms");
 					}
 					if (key.isReadable()) {
+						long beforeTime = System.currentTimeMillis();
 						SocketChannel client = (SocketChannel) key.channel();
 						ByteBuffer output = (ByteBuffer) key.attachment();
+						output.clear();
 						client.read(output);
+						System.out.println("Accept read time: " + (System.currentTimeMillis() - beforeTime) + " ms");
 					}
 					if (key.isWritable()) {
+						long beforeTime = System.currentTimeMillis();
 						SocketChannel client = (SocketChannel) key.channel();
 						ByteBuffer output = (ByteBuffer) key.attachment();
 						output.flip();
 						client.write(output);
 						output.compact();
+						System.out.println("Accept write time: " + (System.currentTimeMillis() - beforeTime) + " ms");
 					}
 				} catch (IOException ex) {
 					key.cancel();

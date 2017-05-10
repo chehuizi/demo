@@ -10,9 +10,10 @@ import java.net.UnknownHostException;
 
 public class PlainEchoClient {
 	public static void main(String args[]) throws Exception {
-		for (int i = 0; i < 20; i++) {
-			startClientThread();
-		}
+//		for (int i = 0; i < 20; i++) {
+//			startClientThread();
+//		}
+		startClientThread();
 	}
 
 	private static void startClientThread() throws UnknownHostException, IOException {
@@ -39,7 +40,7 @@ public class PlainEchoClient {
 		writer.flush();
 		// 写完以后进行读操作
 		Reader reader = new InputStreamReader(client.getInputStream());
-		char chars[] = new char[64];// 假设所接收字符不超过64位，just for demo
+		char chars[] = new char[1024];// 假设所接收字符不超过64位，just for demo
 		int len = reader.read(chars);
 		StringBuffer sb = new StringBuffer();
 		sb.append(new String(chars, 0, len));
