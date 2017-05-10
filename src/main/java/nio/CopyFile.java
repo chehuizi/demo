@@ -7,10 +7,10 @@ import java.nio.channels.*;
 
 public class CopyFile {
 	static public void main(String args[]) throws Exception {
-		if (args.length < 2) {
-			System.err.println("Usage: java CopyFile infile outfile");
-			System.exit(1);
-		}
+//		if (args.length < 2) {
+//			System.err.println("Usage: java CopyFile infile outfile");
+//			System.exit(1);
+//		}
 
 //		String infile = args[0];
 //		String outfile = args[1];
