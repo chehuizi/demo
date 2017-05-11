@@ -45,7 +45,7 @@ public class PlainNioEchoServer {
 						client.configureBlocking(false);
 						client.register(selector, SelectionKey.OP_WRITE | SelectionKey.OP_READ,
 								ByteBuffer.allocate(100));
-						System.out.println("Accept connection time: " + (System.currentTimeMillis() - beforeTime) + " ms");
+						System.out.println("Accept connection time: " + (System.currentTimeMillis() - beforeTime) + " ms" + ", key: " + key.interestOps());
 					}
 					if (key.isReadable()) {
 						long beforeTime = System.currentTimeMillis();
@@ -53,7 +53,7 @@ public class PlainNioEchoServer {
 						ByteBuffer output = (ByteBuffer) key.attachment();
 						output.clear();
 						client.read(output);
-						System.out.println("Accept read time: " + (System.currentTimeMillis() - beforeTime) + " ms");
+						System.out.println("Accept read time: " + (System.currentTimeMillis() - beforeTime) + " ms" + ", key: " + key.interestOps());
 					}
 					if (key.isWritable()) {
 						long beforeTime = System.currentTimeMillis();
@@ -62,7 +62,7 @@ public class PlainNioEchoServer {
 						output.flip();
 						client.write(output);
 						output.compact();
-						System.out.println("Accept write time: " + (System.currentTimeMillis() - beforeTime) + " ms");
+						System.out.println("Accept write time: " + (System.currentTimeMillis() - beforeTime) + " ms" + ", key: " + key.interestOps());
 					}
 				} catch (IOException ex) {
 					key.cancel();

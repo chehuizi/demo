@@ -33,6 +33,7 @@ public class PlainEchoClient {
 		long beforeTime = System.currentTimeMillis();
 		String host = "127.0.0.1";
 		int port = 8086;
+//		int port = 9999;
 		Socket client = new Socket(host, port);
 		// 建立连接后就可以往服务端写数据了
 		Writer writer = new OutputStreamWriter(client.getOutputStream());
