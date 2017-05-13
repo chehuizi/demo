@@ -6,7 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class SerialTest4 {
-	private static final String TMP_FILE = ".serialtest4.txt";
+	private static final String TMP_FILE = "serialtest4.txt";
 
 	public static void main(String[] args) {
 		// 将“对象”通过序列化保存
