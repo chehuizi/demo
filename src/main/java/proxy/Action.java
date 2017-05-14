@@ -1,4 +1,4 @@
-package designPattern.proxy;
+package proxy;
 
 public interface Action {
 	
