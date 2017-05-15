@@ -28,16 +28,17 @@ public class SocketServer {
 			try {
 				inputStream = client.getInputStream();
 				outputStream = client.getOutputStream();
-				
-				InputStreamReader isr = new InputStreamReader(inputStream);
-				char[] cbuf = new char[1024];
-				isr.read(cbuf);
-				String str = new String(cbuf);
-				System.out.println("From client : " + str);
-				
-				OutputStreamWriter osw = new OutputStreamWriter(outputStream);
-				osw.write(str);
-				osw.flush();
+				while (true) {
+					InputStreamReader isr = new InputStreamReader(inputStream);
+					char[] cbuf = new char[1024];
+					isr.read(cbuf);
+					String str = new String(cbuf);
+					System.out.println("From client : " + str);
+					
+					OutputStreamWriter osw = new OutputStreamWriter(outputStream);
+					osw.write(str);
+					osw.flush();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

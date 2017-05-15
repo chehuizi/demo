@@ -18,18 +18,19 @@ public class SocketClient {
 			Socket socket = new Socket();
 			InetSocketAddress server = new InetSocketAddress(address, port);
 			socket.connect(server);
-			
-			outputStream = socket.getOutputStream();
-			OutputStreamWriter osw = new OutputStreamWriter(outputStream);
-			osw.write("Hello, world.");
-			osw.flush();
-			
-			inputStream = socket.getInputStream();
-			InputStreamReader isr = new InputStreamReader(inputStream);
-			char[] cbuf = new char[1024];
-			isr.read(cbuf);
-			String str = new String(cbuf);
-			System.out.println("From server : " + str);
+			while (true) {
+				outputStream = socket.getOutputStream();
+				OutputStreamWriter osw = new OutputStreamWriter(outputStream);
+				osw.write("Hello, world.");
+				osw.flush();
+				
+				inputStream = socket.getInputStream();
+				InputStreamReader isr = new InputStreamReader(inputStream);
+				char[] cbuf = new char[1024];
+				isr.read(cbuf);
+				String str = new String(cbuf);
+				System.out.println("From server : " + str);
+			}
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
@@ -40,7 +41,7 @@ public class SocketClient {
 		String address = "127.0.0.1";
 		int port = 8888;
 		for (int i=0; i<5; i++) {
-			sc.createClient(address, port);
+			sc.createClient(address, port+i);
 		}
 	}
 }
