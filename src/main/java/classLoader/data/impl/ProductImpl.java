@@ -1,6 +1,6 @@
-package org.weli.classloader.tutorial.data.impl;
+package classLoader.data.impl;
 
-import org.weli.classloader.tutorial.data.Product;
+import classLoader.data.Product;
 
 public class ProductImpl implements Product {
 

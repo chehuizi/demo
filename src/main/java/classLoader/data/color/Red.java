@@ -1,4 +1,4 @@
-package org.weli.classloader.tutorial.data.color;
+package classLoader.data.color;
 
 /**
  * Created by IntelliJ IDEA.
@@ -9,6 +9,6 @@ package org.weli.classloader.tutorial.data.color;
  */
 public class Red {
     public void show() {
-        System.out.println("red");
+        System.out.println("red...");
     }
 }

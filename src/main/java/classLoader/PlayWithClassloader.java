@@ -1,11 +1,10 @@
-package org.weli.classloader.tutorial;
+package classLoader;
 
-import org.weli.classloader.tutorial.data.Product;
-import org.weli.classloader.tutorial.data.color.Red;
-import org.weli.classloader.tutorial.data.impl.ProductImpl;
 
 import java.lang.reflect.Method;
 import java.nio.file.Paths;
+
+import classLoader.data.impl.ProductImpl;
 
 /**
  * Created by weinanli on 9/8/16.
@@ -33,18 +32,18 @@ public class PlayWithClassloader {
 
         {
             String pwd = Paths.get("").toAbsolutePath().toString();
-            ClassLoader cl = new SimpleClassLoader(pwd + "/build/classes/main/org/weli/classloader/tutorial/data/impl");
-            Class clazz = cl.loadClass("org.weli.classloader.tutorial.data.impl.ProductImpl");
+            ClassLoader cl = new SimpleClassLoader(pwd + "/target/classes/classloader/data/impl");
+            Class clazz = cl.loadClass("classLoader.data.impl.ProductImpl");
             System.out.println(clazz);
         }
 
         {
             String pwd = Paths.get("").toAbsolutePath().toString();
-            ClassLoader loader1 = new SimpleClassLoader(pwd + "/build/classes/main/org/weli/classloader/tutorial/data/impl");
-            Class clazz1 = loader1.loadClass("org.weli.classloader.tutorial.data.impl.ProductImpl");
+            ClassLoader loader1 = new SimpleClassLoader(pwd + "/target/classes/classloader/data/impl");
+            Class clazz1 = loader1.loadClass("classLoader.data.impl.ProductImpl");
 
-            ClassLoader loader2 = new SimpleClassLoader(pwd + "/build/classes/main/org/weli/classloader/tutorial/data/impl");
-            Class clazz2 = loader2.loadClass("org.weli.classloader.tutorial.data.impl.ProductImpl");
+            ClassLoader loader2 = new SimpleClassLoader(pwd + "/target/classes/classloader/data/impl");
+            Class clazz2 = loader2.loadClass("classLoader.data.impl.ProductImpl");
 
             // 查看各自己使用的ClassLoader
             System.out.println(clazz1.getClassLoader());

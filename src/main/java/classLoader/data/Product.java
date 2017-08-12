@@ -1,4 +1,4 @@
-package org.weli.classloader.tutorial.data;
+package classLoader.data;
 
 public interface Product {
 	public String getName();

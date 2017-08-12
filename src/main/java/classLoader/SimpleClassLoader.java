@@ -1,4 +1,4 @@
-package org.weli.classloader.tutorial;
+package classLoader;
 
 import java.io.File;
 import java.io.FileInputStream;
