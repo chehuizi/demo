@@ -9,9 +9,9 @@ import java.util.concurrent.Executors;
 
 public class ListDemo {
 	public static void main(String args[]) {
-		final ArrayList<String> arrayList = new ArrayList<String>();
-		final Vector<String> vector = new Vector<String>();
-		final LinkedList<String> linkedList = new LinkedList<String>();
+		ArrayList<String> arrayList = new ArrayList<String>();
+		Vector<String> vector = new Vector<String>();
+		LinkedList<String> linkedList = new LinkedList<String>();
 //		run(arrayList);
 //		run(vector);
 		run(linkedList);
