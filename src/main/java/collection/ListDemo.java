@@ -1,6 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
@@ -8,10 +9,12 @@ import java.util.concurrent.Executors;
 
 public class ListDemo {
 	public static void main(String args[]) {
-		final ArrayList<String> arrList = new ArrayList<String>();
+		final ArrayList<String> arrayList = new ArrayList<String>();
 		final Vector<String> vector = new Vector<String>();
-//		run(arrList);
-		run(vector);
+		final LinkedList<String> linkedList = new LinkedList<String>();
+//		run(arrayList);
+//		run(vector);
+		run(linkedList);
 	}
 	
 	public static void run(final List<String> list) {
