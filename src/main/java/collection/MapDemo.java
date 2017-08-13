@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -13,9 +14,11 @@ public class MapDemo {
 		Map<String, String> map = new HashMap<String, String>();
 		Map<String, String> conMap = new ConcurrentHashMap<String, String>();
 		Map<String, String> linkedMap = new LinkedHashMap<String, String>(100, 0.75f, true);
+		Map<String, String> treeMap = new TreeMap<String, String>();
 //		run(map);
 //		run(conMap);
-		entry(linkedMap);
+//		entry(linkedMap);
+		entry(treeMap);
 	}
 	
 	public static void run(Map<String, String> map) {
@@ -27,6 +30,7 @@ public class MapDemo {
 	}
 	
 	public static void entry(Map<String, String> map) {
+		map.put("500", "500");
 		for (int i=1; i<20; i++) {
 			map.put(i + "", i + "");
 		}
@@ -41,4 +45,5 @@ public class MapDemo {
 			System.out.println(entry);
 		}
 	}
+	
 }
