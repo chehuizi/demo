@@ -2,10 +2,8 @@ package mutiThread;
 
 public class VolatileTest {
 	private static final int THREAD_NUM = 20;
-
-	public static volatile int race = 0;
 	
-//	public static int race = 0;
+	public volatile static int race = 0;
 
 	public static void increase() {
 		race++;
@@ -27,7 +25,7 @@ public class VolatileTest {
 			threads[i].start();
 		}
 
-		while (Thread.activeCount() > 2) {
+		while (Thread.activeCount() > 1) {
 			Thread.yield();
 		}
 
