@@ -4,6 +4,8 @@ public class VolatileTest {
 	private static final int THREAD_NUM = 20;
 
 	public static volatile int race = 0;
+	
+//	public static int race = 0;
 
 	public static void increase() {
 		race++;
@@ -16,7 +18,7 @@ public class VolatileTest {
 		for (int i = 0; i < THREAD_NUM; i++) {
 			threads[i] = new Thread(new Runnable() {
 				public void run() {
-					for (int i = 0; i < 10000; i++) {
+					for (int i = 0; i < 1000; i++) {
 						// System.out.println("race == "+race);
 						increase();
 					}
