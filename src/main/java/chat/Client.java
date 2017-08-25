@@ -64,7 +64,7 @@ public class Client {
 	private void read(SelectionKey key) throws Exception {
 		SocketChannel channel = (SocketChannel) key.channel();
 		// 穿件读取的缓冲区
-		ByteBuffer buffer = ByteBuffer.allocate(10);
+		ByteBuffer buffer = ByteBuffer.allocate(1024);
 		channel.read(buffer);
 		byte[] data = buffer.array();
 		String msg = new String(data).trim();
@@ -83,6 +83,10 @@ public class Client {
 		Client client = new Client();
 		client.initClient("localhost", 8989);
 		client.listen();
+		Client client1 = new Client();
+		client1.initClient("localhost", 8989);
+		client1.listen();
+		
 	}
 
 }
