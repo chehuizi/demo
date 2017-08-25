@@ -3,6 +3,7 @@ package socket;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class Client {
 	public void connect() {
@@ -34,13 +35,17 @@ public class Client {
 				int index = 0;
 				byte[] byteData = new byte[1024];
 				int next;
+				
 				do {
 					InputStream ins = socket.getInputStream();
 					next = ins.read();
 					byteData[index] = (byte) next;
+					if (next == '|') {
+						String str = new String(Arrays.copyOf(byteData, index));
+						System.out.println(Thread.currentThread().getName() + str);
+						byteData = new byte[1024];
+					}
 					index++;
-					String str = new String(byteData);
-					System.out.println(Thread.currentThread().getName() + str);
 				} while (next > 0);
 			} catch (IOException ioe) {
 				ioe.printStackTrace();

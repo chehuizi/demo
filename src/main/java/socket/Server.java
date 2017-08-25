@@ -41,9 +41,12 @@ public class Server {
 		public void run() {
 			while (true) {
 				String str = "hello world";
+				char mark = '|';
+				
 				try {
 					OutputStream os = socket.getOutputStream();
 					os.write(str.getBytes());
+					os.write(mark);
 					os.flush();
 					
 					Thread.sleep(5000);
