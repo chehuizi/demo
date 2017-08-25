@@ -42,7 +42,7 @@ public class Client {
 					byteData[index] = (byte) next;
 					if (next == '|') {
 						String str = new String(Arrays.copyOf(byteData, index));
-						System.out.println(Thread.currentThread().getName() + str);
+						System.out.println(Thread.currentThread().getName() + "---" + str);
 						byteData = new byte[1024];
 					}
 					index++;
